@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advanced Selectors & Display</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      background-color: #0077cc;
+      padding: 1rem 2rem;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav h1 {
+      font-size: 1.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav ul li {
+      cursor: pointer;
+      transition: opacity 0.3s;
+    }
+
+    /* Advanced selector: hover effect only for first nav item */
+    nav ul li:first-child:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 1rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+    }
+
+    .card {
+      background-image: url('pic_trulli.jpg');
+      background-size: cover;
+      background-position: center;
+      padding: 2rem;
+      border-radius: 8px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      min-height: 350px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .card h2 {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Advanced selector: style img after h2 */
+    .card h2 + img {
+      border: 4px solid white;
+      border-radius: 10px;
+    }
+
+    /* Advanced selector: highlight even paragraphs */
+    .container p:nth-of-type(even) {
+      background-color: rgba(255,255,255,0.6);
+      padding: 0.5rem;
+    }
+
+    /* Attribute selector: any link starting with http */
+    a[href^="http"] {
+      color: red;
+      font-weight: bold;
+    }
+
+    /* ===== SIDEBAR ===== */
+    .sidebar {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .sidebar ul {
+      list-style-type: square;
+      padding-left: 1.5rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      margin-top: 2rem;
+      background-color: #333;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>MySite</h1>
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <div class="sidebar">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="https://www.youtube.com/@ThiiNDreal">youtube</a></li>
+        <li><a href="#">Local Link</a></li>
+        <li><a href="https://www.facebook.com/MisterAndyA.K.AThiiND/">facebook</a></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Welcome to My Advanced Website</h2>
+      <img src="image/pic_trulli.jpg" alt="Trulli" width="500" height="333">
+      <p>This site uses <strong>advanced CSS selectors</strong> and <strong>modern display properties</strong> like flexbox and grid.</p>
+      <p>You can customize it to fit your needs while keeping it responsive and visually appealing.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 MySite. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
