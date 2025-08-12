@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Advanced Selectors & Display</title>
+  <title>Interactive Photo Gallery</title>
   <style>
     * {
       margin: 0;
@@ -42,7 +42,6 @@
       transition: opacity 0.3s;
     }
 
-    /* Advanced selector: hover effect only for first nav item */
     nav ul li:first-child:hover {
       text-decoration: underline;
     }
@@ -58,16 +57,12 @@
     }
 
     .card {
-      background-image: url('pic_trulli.jpg');
-      background-size: cover;
-      background-position: center;
-      padding: 2rem;
+      background-color: white;
+      padding: 1rem;
       border-radius: 8px;
-      color: white;
+      color: black;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      min-height: 350px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
 
@@ -75,19 +70,17 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Advanced selector: style img after h2 */
     .card h2 + img {
       border: 4px solid white;
       border-radius: 10px;
+      transition: opacity 0.3s ease-in-out;
     }
 
-    /* Advanced selector: highlight even paragraphs */
     .container p:nth-of-type(even) {
       background-color: rgba(255,255,255,0.6);
       padding: 0.5rem;
     }
 
-    /* Attribute selector: any link starting with http */
     a[href^="http"] {
       color: red;
       font-weight: bold;
@@ -104,6 +97,28 @@
     .sidebar ul {
       list-style-type: square;
       padding-left: 1.5rem;
+    }
+
+    /* ===== GALLERY THUMBNAILS ===== */
+    .thumbnails {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .thumbnails img {
+      width: 80px;
+      height: 60px;
+      object-fit: cover;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: transform 0.2s, border 0.2s;
+    }
+
+    .thumbnails img:hover {
+      transform: scale(1.05);
+      border: 2px solid #0077cc;
     }
 
     /* ===== FOOTER ===== */
@@ -141,15 +156,40 @@
 
     <div class="card">
       <h2>Welcome to My Advanced Website</h2>
-      <img src="image/pic_trulli.jpg" alt="Trulli" width="500" height="333">
+      <img id="mainImage" src="image/pic_trulli.jpg" alt="Trulli" width="500" height="333">
       <p>This site uses <strong>advanced CSS selectors</strong> and <strong>modern display properties</strong> like flexbox and grid.</p>
       <p>You can customize it to fit your needs while keeping it responsive and visually appealing.</p>
+
+      <!-- Thumbnails -->
+      <div class="thumbnails">
+        <img src="image/pic_trulli.jpg" alt="Trulli">
+        <img src="image/pic_nature.jpg" alt="Nature">
+        <img src="image/pic_city.jpg" alt="City">
+        <img src="image/pic_mountain.jpg" alt="Mountain">
+        <img src="image/pic_sea.jpg" alt="Sea">
+      </div>
     </div>
   </div>
 
   <footer>
     <p>© 2025 MySite. All rights reserved.</p>
   </footer>
+
+  <script>
+    const mainImage = document.getElementById('mainImage');
+    const thumbnails = document.querySelectorAll('.thumbnails img');
+
+    thumbnails.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        mainImage.style.opacity = 0;
+        setTimeout(() => {
+          mainImage.src = thumb.src;
+          mainImage.alt = thumb.alt;
+          mainImage.style.opacity = 1;
+        }, 200);
+      });
+    });
+  </script>
 
 </body>
 </html>
