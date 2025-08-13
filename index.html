@@ -5,132 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Interactive Photo Gallery</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f2f5;
-      color: #333;
-    }
-
-    /* ===== NAVBAR ===== */
-    nav {
-      background-color: #0077cc;
-      padding: 1rem 2rem;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav h1 {
-      font-size: 1.5rem;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-    }
-
-    nav ul li {
-      cursor: pointer;
-      transition: opacity 0.3s;
-    }
-
-    nav ul li:first-child:hover {
-      text-decoration: underline;
-    }
-
-    /* ===== MAIN CONTENT ===== */
-    .container {
-      max-width: 1000px;
-      margin: 2rem auto;
-      padding: 1rem;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 2rem;
-    }
-
-    .card {
-      background-color: white;
-      padding: 1rem;
-      border-radius: 8px;
-      color: black;
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .card h2 {
-      margin-bottom: 0.5rem;
-    }
-
-    .card h2 + img {
-      border: 4px solid white;
-      border-radius: 10px;
-      transition: opacity 0.3s ease-in-out;
-    }
-
-    .container p:nth-of-type(even) {
-      background-color: rgba(255,255,255,0.6);
-      padding: 0.5rem;
-    }
-
-    a[href^="http"] {
-      color: red;
-      font-weight: bold;
-    }
-
-    /* ===== SIDEBAR ===== */
-    .sidebar {
-      background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-
-    .sidebar ul {
-      list-style-type: square;
-      padding-left: 1.5rem;
-    }
-
-    /* ===== GALLERY THUMBNAILS ===== */
-    .thumbnails {
-      margin-top: 1rem;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .thumbnails img {
-      width: 80px;
-      height: 60px;
-      object-fit: cover;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: transform 0.2s, border 0.2s;
-    }
-
-    .thumbnails img:hover {
-      transform: scale(1.05);
-      border: 2px solid #0077cc;
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      margin-top: 2rem;
-      background-color: #333;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-    }
+    /* Same styles as before */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background-color: #f0f2f5; color: #333; }
+    nav { background-color: #0077cc; padding: 1rem 2rem; color: #fff; display: flex; justify-content: space-between; align-items: center; }
+    nav h1 { font-size: 1.5rem; }
+    nav ul { list-style: none; display: flex; gap: 1rem; }
+    nav ul li { cursor: pointer; transition: opacity 0.3s; }
+    nav ul li:first-child:hover { text-decoration: underline; }
+    .container { max-width: 1000px; margin: 2rem auto; padding: 1rem; display: grid; grid-template-columns: 1fr 2fr; gap: 2rem; }
+    .card { background-color: white; padding: 1rem; border-radius: 8px; color: black; display: flex; flex-direction: column; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+    .card h2 { margin-bottom: 0.5rem; }
+    .card h2 + img { border: 4px solid white; border-radius: 10px; transition: opacity 0.3s ease-in-out; }
+    .container p:nth-of-type(even) { background-color: rgba(255,255,255,0.6); padding: 0.5rem; }
+    a[href^="http"] { color: red; font-weight: bold; }
+    .sidebar { background: white; padding: 1rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .sidebar ul { list-style-type: square; padding-left: 1.5rem; }
+    .thumbnails { margin-top: 1rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .thumbnails img { width: 80px; height: 60px; object-fit: cover; cursor: pointer; border-radius: 4px; transition: transform 0.2s, border 0.2s; }
+    .thumbnails img:hover, .thumbnails img:focus { transform: scale(1.05); border: 2px solid #0077cc; outline: none; }
+    footer { margin-top: 2rem; background-color: #333; color: #fff; display: flex; justify-content: center; align-items: center; padding: 1rem; }
   </style>
 </head>
 <body>
@@ -148,25 +42,26 @@
     <div class="sidebar">
       <h3>Quick Links</h3>
       <ul>
-        <li><a href="https://www.youtube.com/@ThiiNDreal">youtube</a></li>
+        <li><a href="https://www.youtube.com/@ThiiNDreal">YouTube</a></li>
         <li><a href="#">Local Link</a></li>
-        <li><a href="https://www.facebook.com/MisterAndyA.K.AThiiND/">facebook</a></li>
+        <li><a href="https://www.facebook.com/MisterAndyA.K.AThiiND/">Facebook</a></li>
       </ul>
     </div>
 
     <div class="card">
       <h2>Welcome to My Advanced Website</h2>
-      <img id="mainImage" src="image/pic_trulli.jpg" alt="Trulli" width="500" height="333">
+      <img id="mainImage" src="image/pic_trulli.jpg" alt="A scenic view of Trulli houses in Italy" width="500" height="333">
       <p>This site uses <strong>advanced CSS selectors</strong> and <strong>modern display properties</strong> like flexbox and grid.</p>
       <p>You can customize it to fit your needs while keeping it responsive and visually appealing.</p>
 
       <!-- Thumbnails -->
       <div class="thumbnails">
-        <img src="image/pic_trulli.jpg" alt="Trulli">
-        <img src="image/pic_nature.jpg" alt="Nature">
-        <img src="image/pic_city.jpg" alt="City">
-        <img src="image/pic_mountain.jpg" alt="Mountain">
-        <img src="image/pic_sea.jpg" alt="Sea">
+        <img src="image/pic_trulli.jpg" alt="A scenic view of Trulli houses in Italy">
+        <img src="image/pic_nature.jpg" alt="Beautiful green nature landscape">
+        <img src="image/pic_city.jpg" alt="Skyline of a modern city at sunset">
+        <img src="image/pic_mountain.jpg" alt="Snow-covered mountain peak">
+        <img src="image/pic_sea.jpg" alt="Calm blue sea with gentle waves">
+        <img src="image/pic_forest.jpg" alt="Dense forest with sunlight filtering through trees">
       </div>
     </div>
   </div>
@@ -179,16 +74,36 @@
     const mainImage = document.getElementById('mainImage');
     const thumbnails = document.querySelectorAll('.thumbnails img');
 
+    // Function to handle image change
+    function changeImage(img) {
+      console.log("Image clicked or focused:", img.alt);
+      mainImage.style.opacity = 0;
+      setTimeout(() => {
+        mainImage.src = img.src;
+        mainImage.alt = img.alt;
+        mainImage.style.opacity = 1;
+      }, 200);
+    }
+
+    // Add mouse, focus, and blur events
     thumbnails.forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        mainImage.style.opacity = 0;
-        setTimeout(() => {
-          mainImage.src = thumb.src;
-          mainImage.alt = thumb.alt;
-          mainImage.style.opacity = 1;
-        }, 200);
-      });
+      thumb.addEventListener('click', () => changeImage(thumb));
+      thumb.addEventListener('mouseover', () => console.log("Mouse over:", thumb.alt));
+      thumb.addEventListener('mouseleave', () => console.log("Mouse leave:", thumb.alt));
+      thumb.addEventListener('focus', () => changeImage(thumb)); // Keyboard focus
+      thumb.addEventListener('blur', () => console.log("Blur event:", thumb.alt));
     });
+
+    // Function to add tabindex attributes
+    function addTabFocus() {
+      console.log("Page loaded - Adding tabindex to thumbnails");
+      for (let i = 0; i < thumbnails.length; i++) {
+        thumbnails[i].setAttribute("tabindex", "0");
+      }
+    }
+
+    // onload listener
+    window.addEventListener('load', addTabFocus);
   </script>
 
 </body>
